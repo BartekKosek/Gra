@@ -111,9 +111,12 @@ def random_oponent():
     Opponent =  list_Opponents[randint(0,7)].copy()
     return Opponent
 
-name = input('Podaj imie twojego bohatera  ')
+name = input('Podaj imie twojego bohatera ')
 life = 1000
 mana = 1000
+print(f"{name} wchodzi do portalu")
+print(f" Przed {name} pojawia sie wybór pod postacią 2 drzwi ")
+print(f"{name} wybiera drzwi po lewej ")
 
 goblin =    ["Małym Goblinem",15,3,0]
 nymph =     ["Uwodzicielską Nimfą ",10,3,0]

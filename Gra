@@ -6,15 +6,15 @@ def zwykły_atak():
 def fire_ball():
     global mana 
     mana -= 10
-    return randint(10,25)
+    return randint(15,25)
 def wodne_więzienie():
     global mana
     mana -= 30
-    return randint(25,50)
+    return randint(40,50)
 def esencja_życia():
     global mana
     mana -= 50
-    return randint(50,100)
+    return randint(80,100)
 def spowicie_ciemności():
     global mana
     global life
@@ -33,7 +33,9 @@ def powolna_trucizna():
     return randint(55,155)
 def błogosławieństwo_boga_many():
     global mana
+    global life
     mana += 200
+    life -= 150
     return randint(1,5)
 
 def wybierz_atak():
@@ -125,6 +127,7 @@ lis   =     ["Tułaczkowym lisem",40,10,0]
 troll =     ["Trollem górskim", 250,40,0]
 ognik =     ["Małym ognikiem", 70,25,0]
 hydra =     ["8 głową hydra", 600,350,0]
+Gaia =      ["Królową cierni, Gaia", 800,250,0]
 czarnoksiężnik = ["Przenikliwym czarnoksiężnikiem", 350,300,0]
 list_Opponents = [goblin,nymph,zgred,lis,hydra,troll,ognik,czarnoksiężnik]
 

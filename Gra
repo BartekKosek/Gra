@@ -1,75 +1,42 @@
 from random import randint, random;
 
-szybki = 0
+
 def zwykły_atak():
-    global szybki
     return randint(1,5)
-    if szybki!=0:
-        szybki-=1
 def fire_ball():
-    global mana
-    global szybki
-    mana -= 10
+    global energia 
+    energia -= 10
     return randint(15,25)
-    if szybki!=0:
-        szybki-=1
 def wodne_więzienie():
-    global mana
-    global szybki
-    mana -= 30
+    global energia
+    energia -= 30
     return randint(40,50)
-    if szybki!=0:
-        szybki-=1
 def esencja_życia():
-    global mana
-    global szybki
-    mana -= 50
+    global energia
+    energia -= 50
     return randint(80,100)
-    if szybki!=0:
-        szybki-=1
 def spowicie_ciemności():
-    global mana
+    global energia
     global life
-    global szybki
-    mana -= 100
+    energia -= 100
     life -= 50
     return randint(75,105)
-    if szybki!=0:
-        szybki-=1
 def dotyk_nieba():
-    global mana
-    global life
-    global szybki
-    mana -= 200
+    global energia
+    global life 
+    energia -= 200
     life += 500
     return randint(75,105)
-    if szybki!=0:
-        szybki-=1
 def powolna_trucizna():
-    global mana
-    global szybki
-    mana -= 333
+    global energia
+    energia -= 333
     return randint(55,155)
-    if szybki!=0:
-        szybki-=1
 def błogosławieństwo_boga_many():
-    global mana
-    global szybki
+    global energia
     global life
-    mana += 200
+    energia += 200
     life -= 150
     return randint(1,5)
-    if szybki!=0:
-        szybki-=1
-def krok_cienia():
-    global mana
-    global szybki
-    mana -= 75
-    if szybki==0:
-        szybki+=4
-    else:
-        szybki-=1
-    
 
 def wybierz_atak():
     print('a/A - Walka wręcz')
@@ -80,74 +47,65 @@ def wybierz_atak():
     print('f/F - Dotyk nieba')
     print('g/G - Powolna trucizna')
     print('h/H - Błogosławieństwo Boga many')
-    print('i/I - Krok cienia')
     co = input()
     if co.upper() == 'A':
         return zwykły_atak()
     elif co.upper() == 'B':
-        if mana >= 10:
+        if energia >= 10:
             print("-"*40)
             return fire_ball()  
         else: 
             print("-"*40)
-            print("Nie masz many" )
+            print("Nie masz energi" )
             return 0
     elif co.upper() == 'C':
-        if mana >= 30:
+        if energia >= 30:
             print("-"*50)
             return wodne_więzienie()
         else: 
             print("-"*50)
-            print("Nie masz many" )
+            print("Nie masz energi" )
             return 0
     elif co.upper() == "D":
-        if mana >= 50:
+        if energia >= 50:
             print("-"*70)
             return esencja_życia()
         else: 
             print("-"*70)
-            print("Nie masz many" )
+            print("Nie masz energi" )
             return 0   
     elif co.upper() == "E":
-        if mana >= 100:
+        if energia >= 100:
             print("-"*10)
             return spowicie_ciemności()
         else: 
             print("-"*10)
-            print("Nie masz many" )
+            print("Nie masz energi" )
             return 0
     elif co.upper() == "F":
-        if mana >= 200 and life >= 500:
+        if energia >= 200 and life >= 500:
             print("-"*10)
             return dotyk_nieba()
         else: 
             print("-"*10)
-            print("Nie masz many" )
+            print("Nie masz energi" )
             return 0
     elif co.upper() == "G":
-        if mana >= 333:
+        if energia >= 333:
             print("-"*33)
             return powolna_trucizna()
         else: 
             print("-"*33)
-            print("Nie masz many" )
+            print("Nie masz energi" )
             return 0
     elif co.upper() == "H":
-        if mana >= 200:
+        if energia >= 200:
             print("-"*5)
             return błogosławieństwo_boga_many()
         else:
             print("-"*5)
-            print("Nie masz many" )
-            return 0
-    elif co.upper() == "I":
-        if mana >= 75:
-            print("-"*5)
-            return krok_cienia()
-        else:
-            print("-"*5)
-            print("Nie masz many" )
-            return 0    
+            print("Nie masz energi" )
+            return 0           
     else:
         print("Nie wybrano akcji")
         return 0
@@ -157,7 +115,7 @@ def random_oponent():
 
 name = input('Podaj imie twojego bohatera ')
 life = 1000
-mana = 1000
+energia = 1000
 print(f"{name} wchodzi do portalu")
 print(f" Przed {name} pojawia sie wybór pod postacią 2 drzwi ")
 print(f"{name} wybiera drzwi po lewej ")
@@ -171,8 +129,7 @@ ognik =     ["Małym ognikiem", 70,25,0]
 hydra =     ["8 głową hydra", 600,350,0]
 Gaia =      ["Królową cierni, Gaia", 800,250,0]
 czarnoksiężnik = ["Przenikliwym czarnoksiężnikiem", 350,300,0]
-ślepiec = ["Ślepy demon asgardu", 350,200,0]
-list_Opponents = [goblin,nymph,zgred,lis,hydra,troll,ognik,czarnoksiężnik,ślepiec]
+list_Opponents = [goblin,nymph,zgred,lis,hydra,troll,ognik,czarnoksiężnik]
 
 liczba_pokonanych_przeciwników = 0
 while life > 0:
@@ -181,12 +138,10 @@ while life > 0:
     while Opponent[1] > 0:
         print(f"{name} walczy teraz z {Opponent[0]}")
         print(f"Przeciwnik ma {Opponent[1]} Hp i zadaje ci {Opponent[2]} obrażeń")
-        if szybki==0:
-            life = life - Opponent[2]
-            print('krok cienia pozwala ci uniknąć ataku')
+        life = life - Opponent[2]
         if life < 0:
             break
-        print(f"Zostało ci {life} Hp i {mana} Many")
+        print(f"Zostało ci {life} Hp i {energia} energi")
         atak  = wybierz_atak()
         Opponent[1] = Opponent[1] - atak
         print(f"Zadałeś {atak} obrażeń")

@@ -60,50 +60,50 @@ def wybierz_atak():
             return 0
     elif co.upper() == 'C':
         if energia >= 30:
-            print("-"*50)
+            print("-"*40)
             return wodne_więzienie()
         else: 
-            print("-"*50)
+            print("-"*40)
             print("Nie masz energi" )
             return 0
     elif co.upper() == "D":
         if energia >= 50:
-            print("-"*70)
+            print("-"*40)
             return esencja_życia()
         else: 
-            print("-"*70)
+            print("-"*40)
             print("Nie masz energi" )
             return 0   
     elif co.upper() == "E":
         if energia >= 100:
-            print("-"*10)
+            print("-"*40)
             return spowicie_ciemności()
         else: 
-            print("-"*10)
+            print("-"*40)
             print("Nie masz energi" )
             return 0
     elif co.upper() == "F":
         if energia >= 200 and life >= 500:
-            print("-"*10)
+            print("-"*40)
             return dotyk_nieba()
         else: 
-            print("-"*10)
+            print("-"*40)
             print("Nie masz energi" )
             return 0
     elif co.upper() == "G":
         if energia >= 333:
-            print("-"*33)
+            print("-"*40)
             return powolna_trucizna()
         else: 
-            print("-"*33)
+            print("-"*40)
             print("Nie masz energi" )
             return 0
     elif co.upper() == "H":
         if energia >= 200:
-            print("-"*5)
+            print("-"*40)
             return błogosławieństwo_boga_many()
         else:
-            print("-"*5)
+            print("-"*40)
             print("Nie masz energi" )
             return 0           
     else:
